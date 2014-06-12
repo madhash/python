@@ -154,16 +154,19 @@ class TwentyFortyEight:
     def get_tile(self, row, col):
         return self.n[row][col]    
 def game_start():
-    z=0;grid_height=4;grid_width=4
-    t=TwentyFortyEight(4,4)
+    z=0;
+    h=raw_input("please enter the grid height  ------->")
+    w=raw_input("please enter the grid width  ------->")
+    t=TwentyFortyEight(int(h),int(w))
     while(1):
         if(z==0):
-            print  "One second your move please ! or press i for instructions or key in 'e' to exit the game if you feel borred "
+            print  "One second press i for instructions or key in 'e' to exit the game if you feel borred "
+            print "UP:1    DOWN:2    LEFT:3    RIGHT:4"
             q=raw_input("Set your target friend ----->")
             print "here is your grids friend have fun"
             x=t.new_tile()
-            print1(x,grid_height)
-        if(game_check(x,int(q),grid_height,grid_width)==True):
+            print1(x,int(h))
+        if(game_check(x,int(q),int(h),int(w))==True):
             
             print "Great my friend you did it "
             return None
@@ -178,9 +181,8 @@ def game_start():
         x=t.move(int(m))
         print "here is your new grid"
         
-        print1(x,grid_height)
+        print1(x,int(h))
         z=1
-
 def print1(n,w):
     
     for i in range(w):
